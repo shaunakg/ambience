@@ -1,7 +1,7 @@
 
 <script>
 
-    let backgroundTerm = new URLSearchParams(location.search).get("bg_search") || "rain";
+    let backgroundTerm = new URLSearchParams(location.search).get("bg_search") || "purple art";
     let backgroundUrl = new URLSearchParams(location.search).get("bg") || `https://source.unsplash.com/random?${encodeURIComponent(backgroundTerm)}`
     let opacity = 0;
 
@@ -41,7 +41,7 @@
         object-fit: cover;
         width: 100%;
         height: 100%;
-        filter: blur(7px) scale(1.01);
+        filter: blur(7px);
     }
 
 </style>
