@@ -87,7 +87,7 @@
 			fgColor = "333";
 		}
 
-		greetingString = new Date().getHours() < 12 ? 'Good morning 🌅' : (new Date().getHours() < 17 ? 'Good afternoon ☀️' : (new Date().getHours() < 20 ? 'Good evening 🌇' : 'Good night 🌃'));
+		greetingString = new Date().getHours() < 12 ? 'Good morning' : (new Date().getHours() < 17 ? 'Good afternoon' : (new Date().getHours() < 20 ? 'Good evening' : 'Good night'));
 
 	}, 1000);
 
