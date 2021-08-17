@@ -41,7 +41,7 @@
         }
     ];
 
-    let videoURL = "https://www.youtube.com/watch?v=tNkZsRW7h2c";
+    let videoURL = presets[0].url;
     let error = false;
     let showVideo = false;
 

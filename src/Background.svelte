@@ -3,12 +3,12 @@
 
     export let iframeUrl;
 
-    let backgroundTerm = new URLSearchParams(location.search).get("bg_search") || "purple art";
+    let backgroundTerm = new URLSearchParams(location.search).get("bg_search") || "stars";
     let backgroundUrl = new URLSearchParams(location.search).get("bg") || `https://source.unsplash.com/random?${encodeURIComponent(backgroundTerm)}`
-    let opacity = 1;
+    let opacity = 0;
 
     setInterval(() => {
-        if (!new URLSearchParams(location.search).get("bg") && new URLSearchParams(location.search).get("bg_search")) {
+        if (!new URLSearchParams(location.search).get("bg")) {
             opacity = 0;
             backgroundUrl = `https://source.unsplash.com/random?${encodeURIComponent(backgroundTerm)}&${new Date().getTime()}`;
         }
@@ -22,7 +22,7 @@
 >
 
     {#if iframeUrl}
-        <iframe src={iframeUrl + "?autoplay=1"} title="Video iFrame" />
+        <iframe on:load={() => opacity = 1} src={iframeUrl + "?autoplay=1"} title="Video iFrame" />
     {/if}
 
     {#if !iframeUrl}
