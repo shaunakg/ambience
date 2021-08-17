@@ -199,7 +199,7 @@
 
 <Background iframeUrl={iframeUrl} />
 <Darken />
-<Music />
+<Music hide={!!iframeUrl} />
 
 <style>
 

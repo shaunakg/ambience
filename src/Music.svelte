@@ -1,5 +1,7 @@
 <script>
 
+    export let hide;
+
     const presets = [
 
         {
@@ -70,7 +72,7 @@
 
 </script>
 
-<div class="music-div" style="background-color: {showVideo ? 'white':'#ADF6B1'}">
+<div class="music-div" style="background-color: {showVideo ? 'white':'#ADF6B1'}; {hide && 'transform: translateY(120%);'}">
 
     <h2>Music & media</h2>
     {#if error}
@@ -79,7 +81,7 @@
 
     <iframe
         title="Embedded video"
-        src={getEmbedFromVideo(videoURL)}
+        src={hide ? null : getEmbedFromVideo(videoURL)}
         frameBorder="0"
         allowFullScreen
         on:load={() => error = false}
