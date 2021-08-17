@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap');
+
+body {
+	font-family: -apple-system, BlinkMacSystemFont, 'Atkinson Hyperlegible', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	margin: 0; padding: 30px;
+
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-between;
+
+	line-height: 1.5;
+	height: 100vh;
+	background-color: black;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+main {
+	width: 400px;
+}
+
+h1 {
+	margin: 0;
+	font-weight: 300;
+	font-size: 4em;
+}
+
+h2 {
+	font-weight: normal;
+}
