@@ -10,6 +10,33 @@
 	import colorContrast from 'color-contrast';
 	import Credits from './Credits.svelte';
 
+	const studyWith = [
+		{
+			name: 'BTS (Zoom call)',
+			url: 'https://youtube.com/embed/SVDooWT60Ho'
+		},
+
+		{
+			name: 'Jeon Jungkook (BTS)',
+			url: 'https://youtube.com/embed/WIHHVu-p8Tk'
+		},
+
+		{
+			name: 'Namkook (BTS), with music',
+			url: 'https://youtube.com/embed/UM8eFncgJUI'
+		},
+
+		{
+			name: 'Miley Cyrus and Selena Gomez',
+			url: 'https://youtube.com/embed/ku5Dda9tIr4'
+		},
+
+		{
+			name: 'Selena Gomez',
+			url: 'https://youtube.com/embed/crWIRn2rIjs'
+		}
+	]
+
 	dayjs.extend(relativeTime);
 
 	let greetingString = new Date().getHours() < 12 ? 'Good morning' : (new Date().getHours() < 17 ? 'Good afternoon' : (new Date().getHours() < 20 ? 'Good evening' : 'Good night'));
@@ -22,6 +49,7 @@
 	let doColorChanges = false;
 
 	let todos = [];
+	let iframeUrl = null;
 
 	const currentISO = new Date().toISOString();
 
@@ -95,7 +123,11 @@
 
 <Credits />
 
-<main style="background-color: #{bgColor}; color: #{fgColor}">
+<main style="background-color: #{bgColor}; color: #{fgColor}; {iframeUrl && 'transform: translateY(96%)'}">
+
+	{#if iframeUrl}
+		<b style="cursor:pointer" on:click={() => iframeUrl = null} class="stop-iframe">Click here to stop the video</b><br/>
+	{/if}
 
 	<h1>{greetingString}</h1>
 	<span class="time"><i>{timeString}</i></span>
@@ -149,11 +181,23 @@
 			<input type="checkbox" bind:checked={doColorChanges} /> Do color changes
 		</label>
 	</div> -->
-	
+
+	<div class="study-with">
+		<h4>Study with</h4>
+		<p>
+			(New) Study with a celebrity
+		</p>
+		<select bind:value={iframeUrl} aria-placeholder="Choose one">
+			<option>Choose an option</option>
+			{#each studyWith as sw}
+				<option value="{sw.url}">{sw.name}</option>
+			{/each}
+		</select>
+	</div>
 
 </main>
 
-<Background />
+<Background iframeUrl={iframeUrl} />
 <Darken />
 <Music />
 
@@ -247,5 +291,23 @@
 		color: inherit;
 		opacity: 0.5;
 	}
+
+	.study-with {
+		margin-top: 15px;
+		padding: 10px;
+		border: 2px solid #EEE;
+		border-radius: 3px;
+	}
+
+	.study-with select {
+		width: 100%;
+	}
+
+	.study-with p {
+		margin: 0;
+		font-size: 0.8rem;
+	}
+
+	.study-with h4 {margin: 0}
 
 </style>

@@ -1,9 +1,11 @@
 
 <script>
 
+    export let iframeUrl;
+
     let backgroundTerm = new URLSearchParams(location.search).get("bg_search") || "purple art";
     let backgroundUrl = new URLSearchParams(location.search).get("bg") || `https://source.unsplash.com/random?${encodeURIComponent(backgroundTerm)}`
-    let opacity = 0;
+    let opacity = 1;
 
     setInterval(() => {
         if (!new URLSearchParams(location.search).get("bg") && new URLSearchParams(location.search).get("bg_search")) {
@@ -18,7 +20,15 @@
     class="background"
     style="opacity: {opacity}"
 >
-    <img on:load={() => opacity = 1} alt="Background" src={backgroundUrl} />
+
+    {#if iframeUrl}
+        <iframe src={iframeUrl + "?autoplay=1"} title="Video iFrame" />
+    {/if}
+
+    {#if !iframeUrl}
+        <img on:load={() => opacity = 1} alt="Background" src={backgroundUrl} />
+    {/if}
+
 </div>
 
 <style>
@@ -42,6 +52,13 @@
         width: 100%;
         height: 100%;
         filter: blur(7px);
+    }
+
+    iframe {
+        width: 100%;
+        height: 100%;
+
+        transform: scale(1.01);
     }
 
 </style>
