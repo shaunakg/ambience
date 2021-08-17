@@ -8,7 +8,7 @@
 	import Darken from './Darken.svelte';
 	import Music from './Music.svelte';
 	import colorContrast from 'color-contrast';
-import Credits from './Credits.svelte';
+	import Credits from './Credits.svelte';
 
 	dayjs.extend(relativeTime);
 
@@ -21,11 +21,7 @@ import Credits from './Credits.svelte';
 	let fgColor = '333';
 	let doColorChanges = false;
 
-	let todos = [{
-		text: 'first todo',
-		id: v4(),
-		due: new Date(new Date().getTime() + (1000 * 60 * 60 * 24 * 7))
-	}];
+	let todos = [];
 
 	const currentISO = new Date().toISOString();
 
