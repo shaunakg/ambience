@@ -1,8 +1,47 @@
 <script>
 
+    const presets = [
+
+        {
+            name: "Lo-fi",
+            emoji: "🎶",
+            url: "https://www.youtube.com/watch?v=5qap5aO4i9A"
+        },
+
+        {
+            name: "Space",
+            emoji: "🚀",
+            url: "https://www.youtube.com/watch?v=Y-WXwVf3iPo"
+        },
+
+        {
+            name: "Rain",
+            emoji: "🌧",
+            url: "https://www.youtube.com/watch?v=mPZkdNFkNps"
+        },
+
+        {
+            name: "Snow",
+            emoji: "❄️",
+            url: "https://www.youtube.com/watch?v=7BrIJrjxVxA"
+        },
+
+        {
+            name: "Cafè",
+            emoji: "☕️",
+            url: "https://www.youtube.com/watch?v=c0_ejQQcrwI"
+        },
+
+        {
+            name: "Fireplace",
+            emoji: "🔥",
+            url: "https://www.youtube.com/watch?v=UgHKb_7884o"
+        }
+    ];
+
     let videoURL = "https://www.youtube.com/watch?v=tNkZsRW7h2c";
     let error = false;
-    let showVideo = true;
+    let showVideo = false;
 
     const getEmbedFromVideo = v => v.replace("watch?v=", "embed/") + "?autoplay=1";
 
@@ -50,6 +89,13 @@
     /><br/>
 
     <input style="border-top: {showVideo ? 'none':'2px solid gray'}" class="video" placeholder="YouTube video URL" type="url" value={videoURL} on:keyup={setVideoURL} /><br/>
+
+    <div class="presets">
+        {#each presets as preset}
+            <button class={videoURL === preset.url && "active"} title={presets.name} on:click={() => videoURL = preset.url}>{preset.emoji}</button>
+        {/each}
+    </div>
+
     <label style="margin-top:15px;display: block;"><input type="checkbox" bind:checked={showVideo}> show video</label>
 
 </div>
@@ -63,6 +109,26 @@
         box-shadow: 10px 10px 103px -50px rgba(0,0,0,0.75);
         transition: 0.25s;
 	}
+
+    .presets {
+        margin-top: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .presets button {
+        background-color: white;
+        border: 2px solid #EEE;
+        cursor: pointer;
+        font-size: 1em;
+        padding: 2px 7px;
+        border-radius: 2px;
+    }
+
+    .presets button.active {
+        border: 2px solid gray;
+    }
 
     b.error {
         display: block;
