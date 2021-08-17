@@ -12,7 +12,7 @@
 
 	dayjs.extend(relativeTime);
 
-	let greetingString = new Date().getHours() < 12 ? 'Good morning 🌅' : (new Date().getHours() < 17 ? 'Good afternoon ☀️' : (new Date().getHours() < 20 ? 'Good evening 🌇' : 'Good night 🌃'));
+	let greetingString = new Date().getHours() < 12 ? 'Good morning' : (new Date().getHours() < 17 ? 'Good afternoon' : (new Date().getHours() < 20 ? 'Good evening' : 'Good night'));
 
 	let timeString = `It is currently ${dayjs().format('h:mma')}`;
 	let descriptionValue = '';
