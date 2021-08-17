@@ -1,7 +1,7 @@
 ![ambiènce](https://user-images.githubusercontent.com/28996247/129722737-0a4c7f65-834c-4261-8dd9-3c993d8ebd99.png)
 <hr />
 
-### Ambiènce is a study dashboard that has a to-do list, built in media player and modern design.
+### [Ambiènce](https://ambience.srg.id.au/) is a study dashboard that has a to-do list, built in media player and modern design.
 It is like other study dashboards like [Studyboard](https://studyboard.srg.id.au) (also by me) and [LifeAt.io](https://lifeat.io) except that it is super fast and lightweight.
 
 For example, the entire built website is 1.8 megabytes, **1 megabyte of which is the open graph image**, which is never accessed by the browser anyways. If you ignore all of the image resources, the built code with all dependencies comes out to 232KB. 
